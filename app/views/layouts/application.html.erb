@@ -12,39 +12,67 @@
 
   <body>
     <nav>
-      <li>
-        <a href="/users">
-          Main
-        </a>
-      </li>
-    </nav>
-    <nav>
-      <li>
-        <a href="/journals">
-          Journals
-        </a>
-      </li>
-    </nav>
-    <nav>
-      <li>
-        <a href="/courses">
-          Courses
-        </a>
-      </li>
-    </nav>
-    <nav>
-      <li>
-        <a href="/homeworks">
-          Homeworks
-        </a>
-      </li>
-    </nav>
-    <nav>
-      <li>
-        <a href="/notes">
-          Notes
-        </a>
-      </li>
+      <% if current_user != nil %>
+        <li>
+          <a href="/users/sign_out">
+            Sign out
+          </a>
+        </li>
+
+        <li>
+          <a href="/users/edit">
+            Edit profile
+          </a>
+        </li>
+
+        <nav>
+          <li>
+            <a href="/users">
+              Main
+            </a>
+          </li>
+        </nav>
+        <nav>
+          <li>
+            <a href="/journals">
+              Journals
+            </a>
+          </li>
+        </nav>
+        <nav>
+          <li>
+            <a href="/courses">
+              Courses
+            </a>
+          </li>
+        </nav>
+        <nav>
+          <li>
+            <a href="/homeworks">
+              Homeworks
+            </a>
+          </li>
+        </nav>
+        <nav>
+          <li>
+            <a href="/notes">
+              Notes
+            </a>
+          </li>
+        </nav>
+
+      <% else %>
+        <li>
+          <a href="/users/sign_in">
+            Sign in
+          </a>
+        </li>
+        <li>
+          <a href="/users/sign_up">
+            Sign up
+          </a>
+        </li>
+      <% end %>
     </nav>
 
     <%= yield %>

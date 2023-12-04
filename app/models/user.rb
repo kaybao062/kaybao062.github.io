@@ -2,18 +2,27 @@
 #
 # Table name: users
 #
-#  id            :integer          not null, primary key
-#  enroll_date   :date
-#  graduate_date :date
-#  name          :string
-#  password      :string
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  cnet_id       :integer
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  enroll_date            :date
+#  graduate_date          :date
+#  name                   :string
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  cnet_id                :string
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  has_many  :notes, class_name: "Note", foreign_key: "student_id", dependent: :destroy
-  has_many  :homeworks, class_name: "Homework", foreign_key: "student_id", dependent: :destroy
-  has_many  :courses, class_name: "Course", foreign_key: "student_id", dependent: :destroy
-  has_many  :journals, class_name: "Journal", foreign_key: "author_id", dependent: :destroy
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end

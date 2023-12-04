@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get("/", { :controller => "users", :action => "index" })
   root to: "courses#index"
   # Routes for the Homework resource:
