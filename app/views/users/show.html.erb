@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      User #<%= @the_user.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/users">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_user/<%= @the_user.id %>">
+          Delete user
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Cnet
+      </dt>
+      <dd>
+        <%= @the_user.cnet_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_user.name %>
+      </dd>
+
+      <dt>
+        Password
+      </dt>
+      <dd>
+        <%= @the_user.password %>
+      </dd>
+
+      <dt>
+        Enroll date
+      </dt>
+      <dd>
+        <%= @the_user.enroll_date %>
+      </dd>
+
+      <dt>
+        Graduate date
+      </dt>
+      <dd>
+        <%= @the_user.graduate_date %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit user
+    </h2>
+
+    <form action="/modify_user/<%= @the_user.id %>"  method="post" >
+      <div>
+        <label for="cnet_id_box">
+          Cnet
+        </label>
+
+        <input type="text" id="cnet_id_box" name="query_cnet_id" value="<%= @the_user.cnet_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_user.name %>">
+      </div>
+
+      <div>
+        <label for="password_box">
+          Password
+        </label>
+
+        <input type="text" id="password_box" name="query_password" value="<%= @the_user.password %>">
+      </div>
+
+      <div>
+        <label for="enroll_date_box">
+          Enroll date
+        </label>
+
+        <input type="date" id="enroll_date_box" name="query_enroll_date" value="<%= @the_user.enroll_date %>">
+      </div>
+
+      <div>
+        <label for="graduate_date_box">
+          Graduate date
+        </label>
+
+        <input type="date" id="graduate_date_box" name="query_graduate_date" value="<%= @the_user.graduate_date %>">
+      </div>
+
+      <button>
+        Update user
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

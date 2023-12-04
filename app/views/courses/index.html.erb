@@ -1,0 +1,81 @@
+<div>
+  <div>
+    <h1>
+      List of all courses
+    </h1>
+  </div>
+</div>
+
+<a href="/insert_course_page">Add a new course</a>
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Location
+        </th>
+
+
+        <th>
+          Link
+        </th>
+
+        <th>
+          Homework
+        </th>
+
+        <th>
+          Professor email
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_courses.each do |a_course| %>
+      <tr>
+        <td>
+          <%= a_course.id %>
+        </td>
+
+        <td>
+          <%= a_course.name %>
+        </td>
+
+        <td>
+          <%= a_course.location %>
+        </td>
+
+        <td>
+          <a href="<%= a_course.link %>" target="_blank">Canvas</a>
+        </td>
+
+        <td>
+          <a href="/homeworks/<%= a_course.homework_id %>"><%= a_course.homework_id %></a>
+        </td>
+
+        <td>
+          <%= a_course.prof_email %>
+        </td>
+
+        <td>
+          <a href="/courses/<%= a_course.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

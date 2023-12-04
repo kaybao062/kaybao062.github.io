@@ -1,0 +1,113 @@
+<div>
+  <div>
+    <h1>
+      Course #<%= @the_course.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/courses">
+          Go back
+        </a>
+      </div>
+
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_course.name %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_course.location %>
+      </dd>
+
+      <dt>
+        Link
+      </dt>
+      <dd>
+        <a href="<%= @the_course.link %>" target="_blank">Canvas</a>
+      </dd>
+
+      <dt>
+        Homework
+      </dt>
+      <dd>
+        <a href="/homeworks/<%= @the_course.homework_id %>"><%= @the_course.homework_id %></a>
+      </dd>
+
+      <dt>
+        Oh link
+      </dt>
+      <dd>
+        <%= @the_course.oh_link %>
+      </dd>
+
+      <dt>
+        Prof email
+      </dt>
+      <dd>
+        <%= @the_course.prof_email %>
+      </dd>
+
+      <dt>
+        Time
+      </dt>
+      <dd>
+        <%= @the_course.time %>
+      </dd>
+
+      <dt>
+        Student
+      </dt>
+      <dd>
+        <%= @the_course.student_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_course.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_course.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+  <div>
+    <a href="/courses/update_page/<%= @the_course.id %>">Edit the course</a>
+  </div>
+
+  <div>
+    <a href="/delete_course/<%= @the_course.id %>">
+      Delete the course
+    </a>
+  </div>
+
+  <div>
+    <a href="/insert_homework_page">
+      Add a homework
+    </a>
+  </div>
+
+  <div>
+    <a href="/insert_note_page">
+      Add a note
+    </a>
+  </div>

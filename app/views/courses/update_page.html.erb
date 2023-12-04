@@ -1,0 +1,73 @@
+<h1>Modifying a course...</h1>
+
+    <form action="/modify_course/<%= @the_course.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_course.name %>">
+      </div>
+
+      <div>
+        <label for="link_box">
+          Link
+        </label>
+
+        <input type="text" id="link_box" name="query_link" value="<%= @the_course.link %>">
+      </div>
+
+      <div>
+        <label for="homework_id_box">
+          Homework
+        </label>
+
+        <input type="text" id="homework_id_box" name="query_homework_id" value="<%= @the_course.homework_id %>">
+      </div>
+
+      <div>
+        <label for="oh_link_box">
+          Oh link
+        </label>
+
+        <input type="text" id="oh_link_box" name="query_oh_link" value="<%= @the_course.oh_link %>">
+      </div>
+
+      <div>
+        <label for="prof_email_box">
+          Prof email
+        </label>
+
+        <input type="text" id="prof_email_box" name="query_prof_email" value="<%= @the_course.prof_email %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_course.location %>">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="date" id="time_box" name="query_time" value="<%= @the_course.time %>">
+      </div>
+
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id" value="<%= @the_course.student_id %>">
+      </div>
+
+      <button>
+        Update course
+      </button>
+    </form>
+  </div>
+</div>

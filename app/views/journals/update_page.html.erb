@@ -1,0 +1,56 @@
+<h1>Modifying the journal...</h1>
+    <form action="/modify_journal/<%= @the_journal.id %>"  method="post" >
+      <div>
+        <label for="content_box">
+          Content
+        </label>
+
+        <textarea id="content_box" name="query_content"><%= @the_journal.content %></textarea>
+      </div>
+
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <textarea id="title_box" name="query_title"><%= @the_journal.title %></textarea>
+      </div>
+
+      <div>
+        <label for="mood_box">
+          Mood
+        </label>
+
+        <input type="text" id="mood_box" name="query_mood" value="<%= @the_journal.mood %>">
+      </div>
+
+      <div>
+        <label for="weather_box">
+          Weather
+        </label>
+
+        <input type="text" id="weather_box" name="query_weather" value="<%= @the_journal.weather %>">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_journal.date %>">
+      </div>
+
+      <div>
+        <label for="author_id_box">
+          Author
+        </label>
+
+        <input type="text" id="author_id_box" name="query_author_id" value="<%= @the_journal.author_id %>">
+      </div>
+
+      <button>
+        Update journal
+      </button>
+    </form>
+  </div>
+</div>

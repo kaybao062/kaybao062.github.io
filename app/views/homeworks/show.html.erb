@@ -1,0 +1,85 @@
+<div>
+  <div>
+    <h1>
+      Homework #<%= @the_homework.id %> for <a href="/courses/<%= @the_homework.course_id %>">course #<%= @the_homework.course_id %></a>
+    </h1>
+
+    <div>
+      <div>
+        <a href="/homeworks">
+          Go back
+        </a>
+      </div>
+
+    <dl>
+      <dt>
+        Due date
+      </dt>
+      <dd>
+        <%= @the_homework.due_date %>
+      </dd>
+
+      <dt>
+        File path
+      </dt>
+      <dd>
+        <%= @the_homework.file_path %>
+      </dd>
+
+      <dt>
+        Instruction
+      </dt>
+      <dd>
+        <%= @the_homework.instruction %>
+      </dd>
+
+      <dt>
+        Questions
+      </dt>
+      <dd>
+        <%= @the_homework.questions %>
+      </dd>
+
+      <dt>
+        Estimated time in hours
+      </dt>
+      <dd>
+        <%= @the_homework.estimated_time %>
+      </dd>
+
+      <dt>
+        Progress
+      </dt>
+      <dd>
+        <%= @the_homework.progress %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_homework.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_homework.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+
+<hr>
+
+  <div>
+    <a href="/homeworks/update_page/<%= @the_homework.id %>">Edit the homework</a>
+  </div>
+
+  <div>
+    <a href="/delete_homework/<%= @the_homework.id %>">
+      Delete the homework
+    </a>
+  </div>

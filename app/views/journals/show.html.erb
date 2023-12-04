@@ -1,0 +1,77 @@
+<div>
+  <div>
+    <h1>
+      Journal #<%= @the_journal.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/journals">
+          Go back
+        </a>
+      </div>
+
+      <dl>
+        <dt>
+          Title
+        </dt>
+        <dd>
+          <%= @the_journal.title %>
+        </dd>
+
+        <dt>
+          Content
+        </dt>
+        <dd>
+          <%= @the_journal.content %>
+        </dd>
+
+        <dt>
+          Mood
+        </dt>
+        <dd>
+          <%= @the_journal.mood %>
+        </dd>
+
+        <dt>
+          Weather
+        </dt>
+        <dd>
+          <%= @the_journal.weather %>
+        </dd>
+
+        <dt>
+          Date
+        </dt>
+        <dd>
+          <%= @the_journal.date %>
+        </dd>
+
+        <dt>
+          Created at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_journal.created_at) %> ago
+        </dd>
+
+        <dt>
+          Updated at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_journal.updated_at) %> ago
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <a href="/journals/update_page/<%= @the_journal.id %>">Edit journal</a>
+  </div>
+
+  <div>
+    <a href="/delete_journal/<%= @the_journal.id %>">
+      Delete journal
+    </a>
+  </div>

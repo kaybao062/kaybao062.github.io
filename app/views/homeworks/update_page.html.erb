@@ -1,0 +1,71 @@
+<h1>Modifying the homework...</h1>
+    <form action="/modify_homework/<%= @the_homework.id %>"  method="post" >
+      <div>
+        <label for="course_id_box">
+          Course
+        </label>
+
+        <input type="text" id="course_id_box" name="query_course_id" value="<%= @the_homework.course_id %>">
+      </div>
+
+      <div>
+        <label for="due_date_box">
+          Due date
+        </label>
+
+        <input type="datetime-local" id="due_date_box" name="query_due_date"
+         value="<%= @the_homework.due_date %>">
+      </div>
+
+      <div>
+        <label for="estimated_time_box">
+          Estimated time
+        </label>
+
+        <input type="text" id="estimated_time_box" name="query_estimated_time" value="<%= @the_homework.estimated_time %>">
+      </div>
+
+      <div>
+        <label for="file_path_box">
+          File path
+        </label>
+
+        <input type="text" id="file_path_box" name="query_file_path" value="<%= @the_homework.file_path %>">
+      </div>
+
+      <div>
+        <label for="instruction_box">
+          Instruction
+        </label>
+
+        <textarea id="instruction_box" name="query_instruction"><%= @the_homework.instruction %></textarea>
+      </div>
+
+      <div>
+        <label for="questions_box">
+          Questions
+        </label>
+
+        <input type="text" id="questions_box" name="query_questions" value="<%= @the_homework.questions %>">
+      </div>
+
+      <div>
+        <label for="student_id_box">
+          Student
+        </label>
+
+        <input type="text" id="student_id_box" name="query_student_id" value="<%= @the_homework.student_id %>">
+      </div>
+
+      <div>
+        <label for="progress_box">
+          Progress
+        </label>
+
+        <input type="text" id="progress_box" name="query_progress" value="<%= @the_homework.progress %>">
+      </div>
+
+      <button>
+        Update homework
+      </button>
+    </form>

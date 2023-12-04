@@ -1,0 +1,74 @@
+<div>
+  <div>
+    <h1>
+      My journals
+    </h1>
+  </div>
+</div>
+
+<div>
+<a href="/journals/insert_page">Draft a new journal</a>
+</div>
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Content
+        </th>
+
+        <th>
+          Mood
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_journals.each do |a_journal| %>
+      <tr>
+        <td>
+          <%= a_journal.id %>
+        </td>
+
+        <td>
+          <%= a_journal.title %>
+        </td>
+
+        <td>
+          <%= a_journal.content %>
+        </td>
+
+        <td>
+          <%= a_journal.mood %>
+        </td>
+
+        <td>
+          <%= a_journal.date %>
+        </td>
+
+        <td>
+          <a href="/journals/<%= a_journal.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
