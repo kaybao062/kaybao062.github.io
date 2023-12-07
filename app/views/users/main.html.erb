@@ -1,13 +1,20 @@
 <body>
   <div class="fancy-heading">Welcome to your UChicago Space</div>
-  <div class="row align-items-center">
+<!--  <div style = "display: flex; justify-content: space-around">
+-->  
+  <div class="d-flex justify-content-evenly">
+    <div>
     <a href="/users/sign_in" class="fancy-button">
       Sign in
     </a>
+    </div>
 
+    <div>
     <a href="/users/sign_up" class="fancy-button">
       Sign up
     </a>
+    </div>
+
   </div>
 
 </body>
@@ -24,12 +31,10 @@
 
     body {
       background-image: image-url('maroon.png');
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      }
+    }
 
   .fancy-button {
+    font-family: Comic Sans MS, Comic Sans, cursive;
     background-color:#ffd803;
     color: black;
     padding-bottom: 5px;
@@ -45,5 +50,7 @@
 
     .fancy-button:hover {
       background-color: #faae2b;
+
     }
+
 </style>
