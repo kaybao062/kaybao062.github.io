@@ -12,7 +12,7 @@ services:
         fromDatabase:
           name: db
           property: connectionString
-        databases: # this section provides some additional database configuration
-      - name: db
-        plan: free
-        ipAllowList: []
+databases: # this section provides some additional database configuration
+  - name: db
+    plan: free
+    ipAllowList: []
