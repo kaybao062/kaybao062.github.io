@@ -21,7 +21,7 @@
     <% @list_of_notes.each do |a_note|%>
 
       <div class="col">
-        <div class="card mb-3" style="max-width: 720px; box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75); height: 320px;">
+        <div class="card mb-3" style="max-width: 720px; box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75); height: 320px; ">
           <div class="row g-0">
             <div class="col-md-4">
               <img src="<%= a_note.image %>" class="img-fluid rounded-start" style="width: 230px; height: 320px">
@@ -30,7 +30,7 @@
               <div class="card-body">
 
                 <h5 class="card-title"><%= a_note.title %>
-                  <span class="badge rounded-pill text-bg-warning"> <%= a_note.course_id %> </span>
+                  <span class="badge rounded-pill text-bg-warning"> <%= a_note.course.name %> </span>
                   <% if a_note.questions != '' %>
                     <span type="button" class="badge text-bg-secondary">Question</span>
                   <% else %>
@@ -54,12 +54,17 @@
 
                 </div>
                 <br>
-                <p class="card-text"><%= a_note.content %></p>
-                <p class="card-text"><small class="text-body-secondary">Last updated at <%= a_note.updated_at %> </small></p>
+                <p class="card-text text-truncate"><%= a_note.content %></p>
+                <br>
+                <br>
+                                <a href="/notes/<%= a_note.id %>" class="btn btn-outline-secondary">Show details</a>
+                                <br>
+                                <br>
+                                                  <h6 class="grey-text" >Created at <%= a_note.created_at %> </h6>
 
-                <a href="/notes/<%= a_note.id %>" class="btn btn-outline-secondary">Show details</a>
 
               </div>
+
             </div>
           </div>
         </div>

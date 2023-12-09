@@ -42,6 +42,7 @@ class JournalsController < ApplicationController
     the_journal.weather = params.fetch("query_weather")
     the_journal.date = params.fetch("query_date")
     the_journal.author_id = params.fetch("query_author_id")
+    the_journal.image = params.fetch("query_image")
 
     if the_journal.valid?
       the_journal.save
@@ -61,6 +62,7 @@ class JournalsController < ApplicationController
     the_journal.weather = params.fetch("query_weather")
     the_journal.date = params.fetch("query_date")
     the_journal.author_id = params.fetch("query_author_id")
+    the_journal.image = params.fetch("query_image")
 
     if the_journal.valid?
       the_journal.save

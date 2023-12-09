@@ -21,78 +21,56 @@
 
 <div class="d-flex flex-row mb-3">
   <div class="p-2">
-        <h5 class="common-text">
-        <span class="badge rounded-pill text-bg-info">
-          <a href="<%= @the_course.link %>">
-            <p class="card-text">Canvas</p>
-          </a>
-        </span>
-      </h5>
+    <h5 class="common-text">
+      <span class="badge rounded-pill text-bg-info">
+        <a href="<%= @the_course.link %>" target="_blank">
+          <p class="card-text">Canvas</p>
+        </a>
+      </span>
+    </h5>
 
   </div>
 
   <div class="p-2">
-        <h5 class="common-text">
-        <span class="badge rounded-pill text-bg-light">
-          <a href="<%= @the_course.oh_link %>">
-            <p class="card-text">Office hour link</p>
-          </a>
-        </span>
-      </h5>
-
+    <h5 class="common-text">
+      <span class="badge rounded-pill text-bg-light">
+        <a href="<%= @the_course.oh_link %>" target="_blank">
+          <p class="card-text">Office hour link</p>
+        </a>
+      </span>
+    </h5>
 
   </div>
 
   <div class="p-2">
-        <h5 class="common-text">
-        <span class="badge rounded-pill text-bg-warning">
-          <p class="card-text"><%= @the_course.prof_email %></p>
-        </span>
-      </h5>
+    <h5 class="common-text">
+      <span class="badge rounded-pill text-bg-warning">
+        <p class="card-text"><%= @the_course.prof_email %></p>
+      </span>
+    </h5>
 
   </div>
-<p><%= @the_course.time.strftime('%A') %> </p>
-</div>
 
+  <div class="p-2">
+    <h5 class="common-text"> <span class="badge rounded-pill text-bg-dark"><%= @the_course.time.strftime('%A') %></span><br />
 
-<div class="container text-center">
-  <div class="row row-cols-2">
-    <div class="col">
-      <div class="card" style="height: 15rem;">
-        <h5 class="card-header" style="background-color:maroon;font-family: Marker Felt, fantasy;color: #ffd803">Notes</h5>
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <div style="border-radius: 10px;">
-              <li class="list-group-item">
-                <% latest_notes = @the_course.notes%>
-                <% latest_notes.each do |a_note| %>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="/notes/<%= a_note.id %>">Note <%= a_note.id %></a></li>
-                  </ul>
-                <% end %>
-              </li>
-            </div>
-          </ul>
-        </div>
-      </div>
-      <br />
-      <div><a href="/insert_note_page" class="btn btn-outline-warning">Insert a note </a><br />
-
-      </div>
     </div>
 
-    <div class="col">
+  </div>
+
+  <div class="container text-center">
+    <div class="row row-cols-2">
       <div class="col">
         <div class="card" style="height: 15rem;">
-          <h5 class="card-header" style="background-color:maroon;font-family: Marker Felt, fantasy;color: #ffd803">Homeworks</h5>
+          <h5 class="card-header" style="background-color:maroon;font-family: Marker Felt, fantasy;color: #ffd803">Notes</h5>
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <div style="border-radius: 10px;">
                 <li class="list-group-item">
-                  <% latest_homeworks = @the_course.homeworks%>
-                  <% latest_homeworks.each do |a_homework| %>
+                  <% latest_notes = @the_course.notes%>
+                  <% latest_notes.each do |a_note| %>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><a href="/homeworks/<%= a_homework.id %>">Homeworks <%= a_homework.id %></a></li>
+                      <li class="list-group-item" ><a href="/notes/<%= a_note.id %>">Note <%= a_note.id %>: <%= a_note.title %></a></li>
                     </ul>
                   <% end %>
                 </li>
@@ -101,78 +79,103 @@
           </div>
         </div>
         <br />
-        <div><a href="/insert_homework_page" class="btn btn-outline-warning">Insert a homework </a><br />
+        <div><a href="/insert_note_page" class="btn btn-outline-warning">Insert a note </a><br />
+
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col">
+          <div class="card" style="height: 15rem;">
+            <h5 class="card-header" style="background-color:maroon;font-family: Marker Felt, fantasy;color: #ffd803">Homeworks</h5>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <div style="border-radius: 10px;">
+                  <li class="list-group-item">
+                    <% latest_homeworks = @the_course.homeworks%>
+                    <% latest_homeworks.each do |a_homework| %>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="/homeworks/<%= a_homework.id %>">Homeworks <%= a_homework.id %></a></li>
+                      </ul>
+                    <% end %>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <br />
+          <div><a href="/insert_homework_page" class="btn btn-outline-warning">Insert a homework </a><br />
+
+          </div>
 
         </div>
 
       </div>
-
     </div>
-  </div>
 
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
 
-  <div>
     <div>
-      <a href="/courses" class="fancy-button">
-        Go back
-      </a>
+      <div>
+        <a href="/courses" class="fancy-button">
+          Go back
+        </a>
+      </div>
     </div>
-  </div>
 
-  <style>
-    .fancy-button {
-        white-space: normal;
-        font-family: Comic Sans MS, Comic Sans, cursive;
-        background-color:#ffd803;
+    <style>
+      .fancy-button {
+          white-space: normal;
+          font-family: Comic Sans MS, Comic Sans, cursive;
+          background-color:#ffd803;
+          color: black;
+          padding-bottom: 5px;
+          padding-top: 1px;
+          padding-left: 10px;
+          padding-right: 10px;
+          border-radius: 5px;
+          border-top: 0.5rem solid maroon;
+          box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+          -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+          -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+          }
+
+          .fancy-button:hover {
+            background-color: #faae2b;
+
+          }
+
+      .common-heading {
+        font-family: Marker Felt, fantasy;
         color: black;
-        padding-bottom: 5px;
-        padding-top: 1px;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius: 5px;
-        border-top: 0.5rem solid maroon;
-        box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
-        -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+        font-size: 40px;
+        text-align: left;
+        line-height: 100px;
         }
 
-        .fancy-button:hover {
-          background-color: #faae2b;
-
-        }
-
-    .common-heading {
+        .common-text {
       font-family: Marker Felt, fantasy;
       color: black;
-      font-size: 40px;
+      font-size: 20px;
       text-align: left;
-      line-height: 100px;
-      }
-
-      .common-text {
-    font-family: Marker Felt, fantasy;
-    color: black;
-    font-size: 20px;
-    text-align: left;
-    }
-
-
-    .common-box {
-      border-radius: 30px;
-      text-align: center;
-      padding: 15px;
-      background-color: #ffd803;
-      font-family: Comic Sans MS, Comic Sans, cursive;
-      width: 300px
       }
 
 
-    .grey-text{
-      color: grey;
-      font-size: 0.8rem;
-      font-style: italic;
-    }
-  </style>
+      .common-box {
+        border-radius: 30px;
+        text-align: center;
+        padding: 15px;
+        background-color: #ffd803;
+        font-family: Comic Sans MS, Comic Sans, cursive;
+        width: 300px
+        }
+
+
+      .grey-text{
+        color: grey;
+        font-size: 0.8rem;
+        font-style: italic;
+      }
+    </style>

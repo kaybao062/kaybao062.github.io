@@ -1,8 +1,30 @@
 <body>
   <% if current_user != nil %>
-        <div>
-          <p class="fancy-heading" >Welcome to your UChicago Space, <%= current_user.id %></p>
+<!--    <div>
+      <p class="fancy-heading" >Welcome to your UChicago Space</p>
+    </div>
+-->    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <p class="fancy-heading" >Welcome to your UChicago Space</p>
         </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <a href="/insert_course_page" class="fancy-button">
+            Insert a course
+          </a>
+        </div>
+        <div class="col">
+          <a href="/journals/insert_page" class="fancy-button">
+            Insert a journal
+          </a>
+        </div>
+      </div>
+    </div>
 
   <% else %>
     <div class="container text-center">

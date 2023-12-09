@@ -19,38 +19,42 @@
   <div style="height: 40px">
   </div>
 
-  <div class="row row-cols-1 row-cols-md-3 g-5 ">
+  <div class="row row-cols-1 row-cols-md-3 g-4 ">
     <% @list_of_journals.each do |a_journal| %>
+        <div class="card col" style="background-color: #FEF8F2; width: 570px; box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75); ">
+        <img src="<%= a_journal.image %>" class="card-img-top" alt="..." style="width: 540px; height: 200px; object-fit: cover;">
+          
 
-      <div class="card col" style="width: 37rem; box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75); ">
-        <img src="<%= a_journal.image %>" class="card-img-top" alt="...">
-        <div class="card-body">
+          <div class="card-body">
 
-          <h5 class="card-title common-text"> <%= a_journal.title %>
-            <a href="/journals/update_page/<%= a_journal.id %>">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-              </svg>
-            </a>
+            <h5 class="card-title common-text"> <%= a_journal.title %>
+              <a href="/journals/update_page/<%= a_journal.id %>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                </svg>
+              </a>
 
-            <a href="/delete_journal/<%= a_journal.id %>">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-              </svg>
+              <a href="/delete_journal/<%= a_journal.id %>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                </svg>
 
-            </a>
+              </a>
 
-          </h5>
-          <span class="badge rounded-pill text-bg-warning"> <%= a_journal.mood %> </span><br />
-          <br />
-          <p class="card-text"> <%= a_journal.content %> </p>
-          <a href="/journals/<%= a_journal.id %>" class="btn btn-outline-secondary">Show details</a><br />
-          <br />
+            </h5>
+            <span class="badge rounded-pill text-bg-warning"> <%= a_journal.mood %> </span><br />
+            <br />
+            <p class="card-text"> <%= a_journal.content %> </p>
+            <br />
           </div>
-        <div class="grey-text"><h6 class="grey-text" >Created at <%= a_journal.created_at %> </h6></div>
-      </div>
-    <% end %>
+          <a href="/journals/<%= a_journal.id %>" class="btn btn-outline-secondary">Show details</a><br />
+          <div class="grey-text">
+            <h6 class="grey-text" >Created at <%= a_journal.created_at %> </h6>
+          </div>
+        </div>
+      <% end %>
+
   </div>
 
 </body>
@@ -98,5 +102,4 @@
     font-size: 20px;
     text-align: left;
     }
-
 </style>

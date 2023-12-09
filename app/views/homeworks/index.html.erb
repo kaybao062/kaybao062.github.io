@@ -20,7 +20,7 @@
   <% @list_of_homeworks.each do |a_homework| %>
     <div class="card g-2">
       <div class="card-body">
-        <span class="badge rounded-pill text-bg-warning"> <%= a_homework.course_id %> </span>
+        <span class="badge rounded-pill text-bg-warning"> <%= a_homework.course.name %> </span>
         <span class="badge text-bg-danger">Estimated <%= a_homework.estimated_time %>h</span>
         <% if a_homework.questions != '' %>
           <span class="badge text-bg-secondary">Question</span>
