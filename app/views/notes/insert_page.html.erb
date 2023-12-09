@@ -1,54 +1,97 @@
-<h1> Start a new note </h1>
-    <form action="/insert_note" method="post">
-      <div>
-        <label for="course_id_box">
-          Course
-        </label>
+<div class="row">
+  <div class="col">
+    <h1 class="common-heading">
+      Insert a new note
+    </h1>
 
-        <input type="text" id="course_id_box" name="query_course_id">
-      </div>
+  </div>
+</div>
 
-      <div>
-        <label for="image_box">
-          Image
-        </label>
+<form action="/insert_note" method="post">  
+<div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="student_id_box"> Student ID </label></h5>
+    <input type="text" id="student_id_box" name="query_student_id" class="form-control" value=<%= current_user.id%>>
+  </div>
 
-        <input type="text" id="image_box" name="query_image">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="course_id_box"> Course ID </label></h5>
+    <input type="text" id="course_id_box" name="query_course_id" class="form-control" placeholder="Add in a course number...">
+  </div>
 
-      <div>
-        <label for="student_id_box">
-          Student
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="title_box">Title</label></h5>
+    <input type="text" id="title_box" name="query_title" class="form-control" placeholder="Add in a title...">
+  </div>
 
-        <input type="text" id="student_id_box" name="query_student_id">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"> <label for="image_box">Image</label></h5>
+    <input type="text" id="image_box" name="query_image" class="form-control" placeholder="Add in an image link...">
+  </div>
 
-      <div>
-        <label for="title_box">
-          Title
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="content_box">Content</label></h5>
+    <textarea id="content_box" name="query_content" rows="3" class="form-control"></textarea>
+  </div>
 
-        <input type="text" id="title_box" name="query_title">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="questions_box">Questions</label></h5>
+    <textarea id="questions_box" name="query_questions" rows="3" class="form-control"></textarea>
+  </div>
+  <button>
+    Create note
+  </button>
+</form>
 
-      <div>
-        <label for="content_box">
-          Content
-        </label>
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
 
-        <textarea id="content_box" name="query_content" rows="3"></textarea>
-      </div>
+      .fancy-button:hover {
+        background-color: #faae2b;
 
-      <div>
-        <label for="questions_box">
-          Questions
-        </label>
+      }
 
-        <textarea id="questions_box" name="query_questions" rows="3"></textarea>
-      </div>
+  .common-heading {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    line-height: 100px;
+    }
 
-      <button>
-        Create note
-      </button>
-    </form>
+  .common-text {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    }
+
+  .common-box {
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffd803;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    width: 300px
+    }
+
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>

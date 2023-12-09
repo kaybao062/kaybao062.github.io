@@ -1,70 +1,172 @@
-<h1>Place a new homework</h1>
-    <form action="/insert_homework" method="post">
-      <div>
-        <label for="course_id_box">
-          Course
-        </label>
+<div class="row">
+  <div class="col">
+    <h1 class="common-heading">
+      Insert a new homework
+    </h1>
 
-        <input type="text" id="course_id_box" name="query_course_id">
-      </div>
+  </div>
+</div>
 
-      <div>
-        <label for="due_date_box">
-          Due date
-        </label>
+<form action="/insert_homework" method="post">
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="student_id_box"> Student ID </label></h5>
+    <input type="text" id="student_id_box" name="query_student_id" class="form-control" value=<%= current_user.id%>>
+  </div>
 
-        <input type="datetime-local" id="due_date_box" name="query_due_date">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="course_id_box"> Course ID </label></h5>
+    <input type="text" id="course_id_box" name="query_course_id" class="form-control" placeholder="Add in a course number...">
+  </div>
 
-      <div>
-        <label for="estimated_time_box">
-          Estimated time
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="instruction_box">Instruction</label></h5>
+    <input type="text" id="instruction_box" name="query_instruction" class="form-control" placeholder="Add in some instruction...">
+  </div>
 
-        <input type="text" id="estimated_time_box" name="query_estimated_time">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"> <label for="file_path_box">File path</label></h5>
+    <input type="text" id="file_path_box" name="query_file_path" class="form-control" placeholder="Add in a file path...">
+  </div>
 
-      <div>
-        <label for="file_path_box">
-          File path
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="due_date_box"> Due date </label></h5>
+    <input type="date" id="due_date_box" name="query_due_date_id" class="form-control">
+  </div>
 
-        <input type="text" id="file_path_box" name="query_file_path">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="estimated_time_box">Estimated to take</label></h5>
+    <input type="text" id="estimated_time_box" name="query_estimated_time" rows="3" class="form-control"></input>
+  </div>
 
-      <div>
-        <label for="instruction_box">
-          Instruction
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="progress_box">Current progress</label></h5>
+    <input type="text"  id="progress_box" name="query_progress" rows="3" class="form-control" value=0></input>
+  </div>
 
-        <textarea id="instruction_box" name="query_instruction" rows="3"></textarea>
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="questions_box">Questions</label></h5>
+    <textarea id="questions_box" name="query_questions" rows="3" class="form-control"></textarea>
+  </div>
+  <button>
+    Create homework
+  </button>
+</form>
 
-      <div>
-        <label for="questions_box">
-          Questions
-        </label>
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
 
-        <input type="text" id="questions_box" name="query_questions">
-      </div>
+      .fancy-button:hover {
+        background-color: #faae2b;
 
-      <div>
-        <label for="student_id_box">
-          Student
-        </label>
+      }
 
-        <input type="text" id="student_id_box" name="query_student_id">
-      </div>
+  .common-heading {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    line-height: 100px;
+    }
 
-      <div>
-        <label for="progress_box">
-          Progress
-        </label>
+  .common-text {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    }
 
-        <input type="text" id="progress_box" name="query_progress">
-      </div>
+  .common-box {
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffd803;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    width: 300px
+    }
 
-      <button>
-        Create homework
-      </button>
-    </form>
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>
+
+<!--<h1>Place a new homework</h1>
+
+<form action="/insert_homework" method="post">
+  <div>
+    <label for="course_id_box">
+      Course
+    </label>
+
+    <input type="text" id="course_id_box" name="query_course_id">
+  </div>
+
+  <div>
+    <label for="estimated_time_box">
+      Estimated time
+    </label>
+
+    <input type="text" id="estimated_time_box" name="query_estimated_time">
+  </div>
+
+  <div>
+    <label for="file_path_box">
+      File path
+    </label>
+
+    <input type="text" id="file_path_box" name="query_file_path">
+  </div>
+
+  <div>
+    <label for="instruction_box">
+      Instruction
+    </label>
+
+    <textarea id="instruction_box" name="query_instruction" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="questions_box">
+      Questions
+    </label>
+
+    <input type="text" id="questions_box" name="query_questions">
+  </div>
+
+  <div>
+    <label for="student_id_box">
+      Student
+    </label>
+
+    <input type="text" id="student_id_box" name="query_student_id">
+  </div>
+
+  <div>
+    <label for="progress_box">
+      Progress
+    </label>
+
+    <input type="text" id="progress_box" name="query_progress">
+  </div>
+
+  <button>
+    Create homework
+  </button>
+</form>
+-->

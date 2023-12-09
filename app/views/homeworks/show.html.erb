@@ -1,85 +1,121 @@
-<div>
-  <div>
-    <h1>
-      Homework #<%= @the_homework.id %> for <a href="/courses/<%= @the_homework.course_id %>">course #<%= @the_homework.course_id %></a>
-    </h1>
+<div class="row">
+  <div class="col">
+    <h1 class="common-heading">
+      Homework <%= @the_homework.id %> for <%= @the_homework.course.name %></a>
+    <a href="/homeworks/update_page/<%= @the_homework.id %>">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+      </svg>
+    </a>
 
-    <div>
-      <div>
-        <a href="/homeworks">
-          Go back
-        </a>
-      </div>
+    <a href="/delete_homework/<%= @the_homework.id %>">
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+      </svg>
 
-    <dl>
-      <dt>
-        Due date
-      </dt>
-      <dd>
-        <%= @the_homework.due_date %>
-      </dd>
+    </a>
+  </h1>
 
-      <dt>
-        File path
-      </dt>
-      <dd>
-        <%= @the_homework.file_path %>
-      </dd>
+</div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <div class="card-title common-text">
+      <h5>Due on <%= @the_homework.due_date %> and estimated to take <%= @the_homework.estimated_time %> hours. </h5>
+    </div>
+    <div class="card-title common-text">
+      <h5>Current Progress</h5>
+    </div>
+    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" style="width: <%= @the_homework.progress %>"><%= @the_homework.progress %></div>
+    </div>
 
-      <dt>
-        Instruction
-      </dt>
-      <dd>
-        <%= @the_homework.instruction %>
-      </dd>
-
-      <dt>
-        Questions
-      </dt>
-      <dd>
-        <%= @the_homework.questions %>
-      </dd>
-
-      <dt>
-        Estimated time in hours
-      </dt>
-      <dd>
-        <%= @the_homework.estimated_time %>
-      </dd>
-
-      <dt>
-        Progress
-      </dt>
-      <dd>
-        <%= @the_homework.progress %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_homework.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_homework.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
 </div>
+<br>
 
-
-<hr>
-
-  <div>
-    <a href="/homeworks/update_page/<%= @the_homework.id %>">Edit the homework</a>
+<div class="card">
+  <h5 class="card-header" style="background-color:maroon;font-family: Marker Felt, fantasy;color: #ffd803">Instruction</h5>
+  <div class="card-body" style=" height: 15rem;">
+    <p class="card-text"><%= @the_homework.instruction %></p>
   </div>
-
-  <div>
-    <a href="/delete_homework/<%= @the_homework.id %>">
-      Delete the homework
-    </a>
+</div>
+<br>
+<div class="card">
+  <h5 class="card-header" style="background-color:grey;font-family: Marker Felt, fantasy;color: white">Questions</h5>
+  <div class="card-body">
+    <p class="card-text"><%= @the_homework.questions %></p>
   </div>
+</div>
+<br>
+<br>
+<div class="d-flex flex-row mb-3" >
+  <div class="p-2">
+    <div>
+      <a href="/homeworks" class="fancy-button">
+        Go back
+      </a>
+    </div>
+  </div>
+  <div class="p-2"><a href="/courses/<%= @the_homework.course_id %>" class="fancy-button">Found the course</a></div>
+
+</div>
+
+<br>
+<br>
+<p class="card-text"><small class="text-body-secondary">Last updated <%= @the_homework.updated_at %></small></p>
+
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
+
+      .fancy-button:hover {
+        background-color: #faae2b;
+
+      }
+
+  .common-heading {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    line-height: 100px;
+    }
+
+  .common-text {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: black;
+    font-size: 15px;
+    text-align: left;
+    }
+
+  .common-box {
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffd803;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    width: 300px
+    }
+
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>

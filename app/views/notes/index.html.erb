@@ -1,103 +1,107 @@
 <div>
   <div>
-    <h1>
-      My notes
+    <h1 class="fancy-heading">
+      My Notes
     </h1>
   </div>
 </div>
 
-<hr>
+<div style="height: 80px">
+  <a href="/insert_note_page" class="fancy-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+    </svg>
 
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
+    Add a new note</a>
+</div>
 
-        <th>
-          Course
-        </th>
+<div class="container">
+  <div class="row row-cols-2 g-5">
+    <% @list_of_notes.each do |a_note|%>
 
-        <th>
-          Image
-        </th>
+      <div class="col">
+        <div class="card mb-3" style="max-width: 720px; box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75); height: 320px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="<%= a_note.image %>" class="img-fluid rounded-start" style="width: 230px; height: 320px">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
 
-        <th>
-          Student
-        </th>
+                <h5 class="card-title"><%= a_note.title %>
+                  <span class="badge rounded-pill text-bg-warning"> <%= a_note.course_id %> </span>
+                  <% if a_note.questions != '' %>
+                    <span type="button" class="badge text-bg-secondary">Question</span>
+                  <% else %>
 
-        <th>
-          Title
-        </th>
+                  <% end %>
+                </h5>
+                <div>
+                  <a href="/notes/update_page/<%= a_note.id %>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                  </a>
 
-        <th>
-          Content
-        </th>
+                  <a href="/delete_note/<%= a_note.id %>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                      <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                    </svg>
 
-        <th>
-          Questions
-        </th>
+                  </a>
 
-        <th>
-          Created at
-        </th>
+                </div>
+                <br>
+                <p class="card-text"><%= a_note.content %></p>
+                <p class="card-text"><small class="text-body-secondary">Last updated at <%= a_note.updated_at %> </small></p>
 
-        <th>
-          Updated at
-        </th>
+                <a href="/notes/<%= a_note.id %>" class="btn btn-outline-secondary">Show details</a>
 
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_notes.each do |a_note| %>
-      <tr>
-        <td>
-          <%= a_note.id %>
-        </td>
-
-        <td>
-          <%= a_note.course_id %>
-        </td>
-
-        <td>
-          <%= a_note.image %>
-        </td>
-
-        <td>
-          <%= a_note.student_id %>
-        </td>
-
-        <td>
-          <%= a_note.title %>
-        </td>
-
-        <td>
-          <%= a_note.content %>
-        </td>
-
-        <td>
-          <%= a_note.questions %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_note.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_note.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/notes/<%= a_note.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
-<hr>
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
+
+      .fancy-button:hover {
+        background-color: #faae2b;
+
+      }
+
+  .fancy-heading {
+    font-family: Marker Felt, fantasy;
+    color: darkred;
+    font-size: 40px;
+    text-shadow: 2px 1px 4px rgba(37,33,33,0.49);
+    text-align: left;
+    line-height: 100px;
+    }
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>

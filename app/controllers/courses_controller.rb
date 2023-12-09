@@ -28,16 +28,13 @@ class CoursesController < ApplicationController
 
     @the_course = matching_courses.at(0)
 
-
     render({ :template => "courses/update_page" })
-
   end
 
   def create
     the_course = Course.new
     the_course.name = params.fetch("query_name")
     the_course.link = params.fetch("query_link")
-    the_course.homework_id = params.fetch("query_homework_id")
     the_course.oh_link = params.fetch("query_oh_link")
     the_course.prof_email = params.fetch("query_prof_email")
     the_course.location = params.fetch("query_location")
@@ -58,7 +55,6 @@ class CoursesController < ApplicationController
 
     the_course.name = params.fetch("query_name")
     the_course.link = params.fetch("query_link")
-    the_course.homework_id = params.fetch("query_homework_id")
     the_course.oh_link = params.fetch("query_oh_link")
     the_course.prof_email = params.fetch("query_prof_email")
     the_course.location = params.fetch("query_location")
@@ -67,7 +63,7 @@ class CoursesController < ApplicationController
 
     if the_course.valid?
       the_course.save
-      redirect_to("/courses/#{the_course.id}", { :notice => "Course updated successfully."} )
+      redirect_to("/courses/#{the_course.id}", { :notice => "Course updated successfully." })
     else
       redirect_to("/courses/#{the_course.id}", { :alert => the_course.errors.full_messages.to_sentence })
     end
@@ -79,6 +75,7 @@ class CoursesController < ApplicationController
 
     the_course.destroy
 
-    redirect_to("/courses", { :notice => "Course deleted successfully."} )
+    redirect_to("/courses", { :notice => "Course deleted successfully." })
   end
+
 end

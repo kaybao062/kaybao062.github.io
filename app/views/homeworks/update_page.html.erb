@@ -1,71 +1,113 @@
-<h1>Modifying the homework...</h1>
-    <form action="/modify_homework/<%= @the_homework.id %>"  method="post" >
-      <div>
-        <label for="course_id_box">
-          Course
-        </label>
 
-        <input type="text" id="course_id_box" name="query_course_id" value="<%= @the_homework.course_id %>">
-      </div>
+<div class="row">
+  <div class="col">
+    <h1 class="common-heading">
+      Modifying the homework...
+    </h1>
 
-      <div>
-        <label for="due_date_box">
-          Due date
-        </label>
+  </div>
+</div>
 
-        <input type="datetime-local" id="due_date_box" name="query_due_date"
-         value="<%= @the_homework.due_date %>">
-      </div>
+<form action="/modify_homework/<%= @the_homework.id %>"  method="post" >
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="student_id_box"> Student ID </label></h5>
+    <input type="text" id="student_id_box" name="query_student_id" class="form-control" value=<%= current_user.id%>>
+  </div>
 
-      <div>
-        <label for="estimated_time_box">
-          Estimated time
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="course_id_box"> Course ID </label></h5>
+    <input type="text" id="course_id_box" name="query_course_id" class="form-control" value=<%= @the_homework.course_id %>>
+  </div>
 
-        <input type="text" id="estimated_time_box" name="query_estimated_time" value="<%= @the_homework.estimated_time %>">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="instruction_box">Instruction</label></h5>
+    <textarea id="instruction_box" name="query_instruction" class="form-control" ><%= @the_homework.instruction %></textarea>
+  </div>
 
-      <div>
-        <label for="file_path_box">
-          File path
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"> <label for="file_path_box">File path</label></h5>
+    <input type="text" id="file_path_box" name="query_file_path" class="form-control" value=<%= @the_homework.file_path %>>
+  </div>
 
-        <input type="text" id="file_path_box" name="query_file_path" value="<%= @the_homework.file_path %>">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="due_date_box"> Date </label></h5>
+    <input type="date" id="due_date_box" name="query_due_date" class="form-control" value=<%= @the_homework.due_date %>>
+  </div>
 
-      <div>
-        <label for="instruction_box">
-          Instruction
-        </label>
 
-        <textarea id="instruction_box" name="query_instruction"><%= @the_homework.instruction %></textarea>
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="estimated_time_box">Estimated to take</label></h5>
+    <input type="text" id="estimated_time_box" name="query_estimated_time" rows="3" class="form-control" value=<%= @the_homework.estimated_time %>></input>
+</div>
 
-      <div>
-        <label for="questions_box">
-          Questions
-        </label>
+<div class="mb-3">
+  <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="progress_box">Current progress</label></h5>
+  <input type="text"  id="progress_box" name="query_progress" rows="3" class="form-control" value=<%= @the_homework.progress %>></input>
+</div>
 
-        <input type="text" id="questions_box" name="query_questions" value="<%= @the_homework.questions %>">
-      </div>
+<div class="mb-3">
+  <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="questions_box">Questions</label></h5>
+  <textarea id="questions_box" name="query_questions" rows="3" class="form-control"><%= @the_homework.questions %></textarea>
+</div>
 
-      <div>
-        <label for="student_id_box">
-          Student
-        </label>
+<button>
+  Update homework
+</button>
 
-        <input type="text" id="student_id_box" name="query_student_id" value="<%= @the_homework.student_id %>">
-      </div>
+</form>
+</div>
+</div>
 
-      <div>
-        <label for="progress_box">
-          Progress
-        </label>
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
 
-        <input type="text" id="progress_box" name="query_progress" value="<%= @the_homework.progress %>">
-      </div>
+      .fancy-button:hover {
+        background-color: #faae2b;
 
-      <button>
-        Update homework
-      </button>
-    </form>
+      }
+
+  .common-heading {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    line-height: 100px;
+    }
+
+  .common-text {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    }
+
+  .common-box {
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffd803;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    width: 300px
+    }
+
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>

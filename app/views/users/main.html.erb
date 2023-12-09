@@ -1,21 +1,33 @@
 <body>
-  <div class="fancy-heading">Welcome to your UChicago Space</div>
-<!--  <div style = "display: flex; justify-content: space-around">
--->  
-  <div class="d-flex justify-content-evenly">
-    <div>
-    <a href="/users/sign_in" class="fancy-button">
-      Sign in
-    </a>
+  <% if current_user != nil %>
+        <div>
+          <p class="fancy-heading" >Welcome to your UChicago Space, <%= current_user.id %></p>
+        </div>
+
+  <% else %>
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <p class="fancy-heading" >Welcome to your UChicago Space</p>
+        </div>
+      </div>
     </div>
 
-    <div>
-    <a href="/users/sign_up" class="fancy-button">
-      Sign up
-    </a>
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <a href="/users/sign_in" class="fancy-button">
+            Open my space
+          </a>
+        </div>
+        <div class="col">
+          <a href="/users/sign_up" class="fancy-button">
+            Build a space
+          </a>
+        </div>
+      </div>
     </div>
-
-  </div>
+  <% end %>
 
 </body>
 
@@ -26,11 +38,12 @@
     font-size: 70px;
     text-shadow: 2px 1px 4px rgba(37,33,33,0.49);
     text-align: center;
-    line-height: 600px;
+    line-height: 300px;
     }
 
     body {
-      background-image: image-url('maroon.png');
+      background-image: url('https://i.etsystatic.com/21635101/r/il/68fd97/2734941476/il_fullxfull.2734941476_is5h.jpg');
+      background-size: cover;
     }
 
   .fancy-button {
@@ -52,5 +65,4 @@
       background-color: #faae2b;
 
     }
-
 </style>

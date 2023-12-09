@@ -5,6 +5,7 @@
 #  id         :integer          not null, primary key
 #  content    :text
 #  date       :date
+#  image      :string
 #  mood       :string
 #  title      :text
 #  weather    :string

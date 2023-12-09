@@ -1,54 +1,102 @@
-<h1>Modifying the note...</h1>
-    <form action="/modify_note/<%= @the_note.id %>"  method="post" >
-      <div>
-        <label for="course_id_box">
-          Course
-        </label>
 
-        <input type="text" id="course_id_box" name="query_course_id" value="<%= @the_note.course_id %>">
-      </div>
+<div class="row">
+  <div class="col">
+    <h1 class="common-heading">
+      Modifying the note...
+    </h1>
 
-      <div>
-        <label for="image_box">
-          Image
-        </label>
+  </div>
+</div>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_note.image %>">
-      </div>
+<form action="/modify_note/<%= @the_note.id %>"  method="post" >
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="student_id_box"> Student ID </label></h5>
+    <input type="text" id="student_id_box" name="query_student_id" class="form-control" value=<%= current_user.id%>>
+  </div>
 
-      <div>
-        <label for="student_id_box">
-          Student
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="course_id_box"> Course ID </label></h5>
+    <input type="text" id="course_id_box" name="query_course_id" class="form-control" value=<%= @the_note.course_id %>>
+  </div>
 
-        <input type="text" id="student_id_box" name="query_student_id" value="<%= @the_note.student_id %>">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="title_box">title</label></h5>
+    <input type="text" id="title_box" name="query_title" class="form-control" value=<%= @the_note.title %>>
+  </div>
 
-      <div>
-        <label for="title_box">
-          Title
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="content_box">Content</label></h5>
+    <textarea id="content_box" name="query_content" rows="3" class="form-control"><%= @the_note.content %></textarea>
+  </div>
 
-        <input type="text" id="title_box" name="query_title" value="<%= @the_note.title %>">
-      </div>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"> <label for="image_box">Image</label></h5>
+    <input type="text" id="image_box" name="query_image" class="form-control" value=<%= @the_note.image %>>
+  </div>
 
-      <div>
-        <label for="content_box">
-          Content
-        </label>
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="questions_box">Questions</label></h5>
+    <textarea id="questions_box" name="query_questions" class="form-control"><%= @the_note.questions %></textarea>
+  </div>
 
-        <textarea id="content_box" name="query_content"><%= @the_note.content %></textarea>
-      </div>
+  <button>
+    Update note
+  </button>
 
-      <div>
-        <label for="questions_box">
-          Questions
-        </label>
+</form>
+</div>
+</div>
 
-        <textarea id="questions_box" name="query_questions"><%= @the_note.questions %></textarea>
-      </div>
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
 
-      <button>
-        Update note
-      </button>
-    </form>
+      .fancy-button:hover {
+        background-color: #faae2b;
+
+      }
+
+  .common-heading {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    line-height: 100px;
+    }
+
+  .common-text {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    }
+
+  .common-box {
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffd803;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    width: 300px
+    }
+
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>

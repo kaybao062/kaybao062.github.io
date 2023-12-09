@@ -1,77 +1,109 @@
-<div>
-  <div>
-    <h1>
-      Journal #<%= @the_journal.id %> details
+<div class="row">
+  <div class="col">
+    <h1 class="common-heading">
+      <%= @the_journal.title %>
+      <a href="/journals/update_page/<%= @the_journal.id %>">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+        </svg>
+      </a>
+
+      <a href="/delete_journal/<%= @the_journal.id %>">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+        </svg>
+
+      </a>
     </h1>
 
-    <div>
-      <div>
-        <a href="/journals">
-          Go back
-        </a>
-      </div>
+  </div>
+</div>
 
-      <dl>
-        <dt>
-          Title
-        </dt>
-        <dd>
-          <%= @the_journal.title %>
-        </dd>
-
-        <dt>
-          Content
-        </dt>
-        <dd>
-          <%= @the_journal.content %>
-        </dd>
-
-        <dt>
-          Mood
-        </dt>
-        <dd>
-          <%= @the_journal.mood %>
-        </dd>
-
-        <dt>
-          Weather
-        </dt>
-        <dd>
-          <%= @the_journal.weather %>
-        </dd>
-
-        <dt>
-          Date
-        </dt>
-        <dd>
-          <%= @the_journal.date %>
-        </dd>
-
-        <dt>
-          Created at
-        </dt>
-        <dd>
-          <%= time_ago_in_words(@the_journal.created_at) %> ago
-        </dd>
-
-        <dt>
-          Updated at
-        </dt>
-        <dd>
-          <%= time_ago_in_words(@the_journal.updated_at) %> ago
-        </dd>
-      </dl>
-    </div>
+<div class="row justify-content-start">
+  <div class="col-2">
+  <h5 class="common-text">Date: <span class="badge rounded-pill text-bg-dark"><%= @the_journal.date %></span><br />
+  </h5>
   </div>
 
-  <hr>
-
-  <div>
-    <a href="/journals/update_page/<%= @the_journal.id %>">Edit journal</a>
+  <div class="col-2">
+    <h5 class="common-text">Mood <span class="badge rounded-pill text-bg-warning"> <%= @the_journal.mood %> </span><br />
+    </h5>
   </div>
 
+  <div class="col-2">
+    <h5 class="common-text">Weather <span class="badge rounded-pill text-bg-info"> <%= @the_journal.weather %> </span><br />
+    </h5>
+  </div>
+</div>
+<br>
+
+<div class="card" style="height: 25rem;">
+  <h5 class="card-header" style="background-color:maroon;font-family: Marker Felt, fantasy;color: #ffd803">Content</h5>
+  <div class="card-body">
+    <p class="card-text"><%= @the_journal.content %></p>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="p-2">
   <div>
-    <a href="/delete_journal/<%= @the_journal.id %>">
-      Delete journal
+    <a href="/journals" class="fancy-button">
+      Go back
     </a>
   </div>
+</div>
+
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
+
+      .fancy-button:hover {
+        background-color: #faae2b;
+
+      }
+
+  .common-heading {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    line-height: 100px;
+    }
+
+  .common-text {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    }
+
+  .common-box {
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    width: 200px
+    }
+
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>

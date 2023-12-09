@@ -1,81 +1,133 @@
-<div>
+<body>
+
   <div>
-    <h1>
-      List of all courses
-    </h1>
+    <div>
+      <h1 class="fancy-heading">
+        My Courses
+      </h1>
+    </div>
   </div>
-</div>
 
-<a href="/insert_course_page">Add a new course</a>
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
+  <div style="height: 80px">
+    <a href="/insert_course_page" class="fancy-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+      </svg>
 
-        <th>
-          Name
-        </th>
-
-        <th>
-          Location
-        </th>
-
-
-        <th>
-          Link
-        </th>
-
-        <th>
-          Homework
-        </th>
-
-        <th>
-          Professor email
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_courses.each do |a_course| %>
-      <tr>
-        <td>
-          <%= a_course.id %>
-        </td>
-
-        <td>
-          <%= a_course.name %>
-        </td>
-
-        <td>
-          <%= a_course.location %>
-        </td>
-
-        <td>
-          <a href="<%= a_course.link %>" target="_blank">Canvas</a>
-        </td>
-
-        <td>
-          <a href="/homeworks/<%= a_course.homework_id %>"><%= a_course.homework_id %></a>
-        </td>
-
-        <td>
-          <%= a_course.prof_email %>
-        </td>
-
-        <td>
-          <a href="/courses/<%= a_course.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+      Add a new course </a>
   </div>
-</div>
 
-<hr>
+  <div class="row justify-content-evenly">
+    <% @list_of_courses.each do |a_course| %>
+      <div class="card text-bg-light mb-2 col-4" style="width: 30rem; box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75); ">
+        <div class="card-body">
+          <div class="card-header"> <%= a_course.id %> </div>
+          <h5 class="card-title"> <%= a_course.name %>
+            <a href="/courses/update_page/<%= a_course.id %>">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+              </svg>
+            </a>
+
+            <a href="/delete_course/<%= a_course.id %>">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+              </svg>
+
+            </a>
+
+          </h5>
+          <span class="badge rounded-pill text-bg-warning"> <%= a_course.location %> </span><br />
+
+          <br />
+          <ul class="list-group list-group-flush">
+            <div style="border-radius: 10px;">
+              <li class="list-group-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                  <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                </svg>
+                <% latest_homeworks = a_course.homeworks.where.not({ :due_date => nil }).order({ :due_date => :desc })%>
+                <% latest_homeworks.each do |a_homework| %>
+
+                  <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                      Check the homework
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                      <li><button class="dropdown-item" type="button"> <a href="/homeworks/<%= a_homework.id %>">Homework <%= a_homework.id %></a></button></li>
+                    </ul>
+                  </div>
+                <% end %>
+              </li>
+
+              <li class="list-group-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                  <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                </svg>
+                <% latest_notes = a_course.notes.order({ :created_at => :desc })%>
+                <% latest_notes.each do |a_note| %>
+
+                  <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                      Check the notes
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                      <li><button class="dropdown-item" type="button"> <a href="/notes/<%= a_note.id %>"><%= a_note.title %></a></button></li>
+                    </ul>
+                  </div>
+                <% end %>
+
+              </li>
+            </div>
+            <br />
+            <div><a href="/courses/<%= a_course.id %>" class="btn btn-outline-secondary">Show details</a><br />
+            </div>
+
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+</body>
+
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
+
+      .fancy-button:hover {
+        background-color: #faae2b;
+
+      }
+
+  .fancy-heading {
+    font-family: Marker Felt, fantasy;
+    color: darkred;
+    font-size: 40px;
+    text-shadow: 2px 1px 4px rgba(37,33,33,0.49);
+    text-align: left;
+    line-height: 100px;
+    }
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>

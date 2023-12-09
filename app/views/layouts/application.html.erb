@@ -15,69 +15,64 @@
   <body>
     <nav>
       <% if current_user != nil %>
-        <li>
-          <a href="/users/sign_out">
-            Sign out
-          </a>
-        </li>
+        <div class="topnav d-flex justify-content-between">
+          <div>
+            <a class="active" href="/">Main</a>
+            <a href="/journals">Journals</a>
+            <a href="/courses">Courses</a>
+            <a href="/notes">Notes</a>
+            <a href="/homeworks">Homework</a>
+          </div>
+          <div>
+            <a href="/users/edit">Edit profile</a>
+            <a href="/users/sign_out">Close the space</a>
+          </div>
+        </div>
+      </nav>
 
-        <li>
-          <a href="/users/edit">
-            Edit profile
-          </a>
-        </li>
+    <% else %>
 
-        <nav>
-          <li>
-            <a href="/users">
-              Main
-            </a>
-          </li>
-        </nav>
-        <nav>
-          <li>
-            <a href="/journals">
-              Journals
-            </a>
-          </li>
-        </nav>
-        <nav>
-          <li>
-            <a href="/courses">
-              Courses
-            </a>
-          </li>
-        </nav>
-        <nav>
-          <li>
-            <a href="/homeworks">
-              Homeworks
-            </a>
-          </li>
-        </nav>
-        <nav>
-          <li>
-            <a href="/notes">
-              Notes
-            </a>
-          </li>
-        </nav>
-
-      <% else %>
-<!--       <li>
-          <a href="/users/sign_in" class="fancy-button">
-            Sign in
-          </a>
-        </li>
-        <li>
-          <a href="/users/sign_up">
-            Sign up
-          </a>
-        </li>
--->      
-      <% end %>
-    </nav>
+    <% end %>
 
     <%= yield %>
+
   </body>
+
+  <style>
+    .topnav {
+      background-color: #fffffe;
+      overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      color: #020826;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      background-color: maroon;
+      color: #ffd803;
+      opacity: 80%;
+    }
+
+      body {
+      margin-top: 0;
+      margin-bottom: 60px;
+      margin-right: 60px;
+      margin-left: 60px;
+      }
+  </style>
 </html>

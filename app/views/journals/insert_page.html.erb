@@ -1,59 +1,105 @@
-<h1>
-Start a new journal
-</h1>
 
-    <form action="/insert_journal" method="post">
-      <div>
-        <label for="content_box">
-          Content
-        </label>
+<div class="row">
+  <div class="col">
+    <h1 class="common-heading">
+      Insert a new journal
+    </h1>
 
-        <textarea id="content_box" name="query_content" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="title_box">
-          Title
-        </label>
-
-        <textarea id="title_box" name="query_title" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="mood_box">
-          Mood
-        </label>
-
-        <input type="text" id="mood_box" name="query_mood">
-      </div>
-
-      <div>
-        <label for="weather_box">
-          Weather
-        </label>
-
-        <input type="text" id="weather_box" name="query_weather">
-      </div>
-
-      <div>
-        <label for="date_box">
-          Date
-        </label>
-
-        <input type="date" id="date_box" name="query_date">
-      </div>
-
-      <div>
-        <label for="author_id_box">
-          Author
-        </label>
-
-        <input type="text" id="author_id_box" name="query_author_id">
-      </div>
-
-      <button>
-        Create journal
-      </button>
-    </form>
   </div>
 </div>
+
+<form action="/insert_journal" method="post">  
+<div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="author_id_box"> Author ID </label></h5>
+    <input type="text" id="author_id_box" name="query_author_id" class="form-control" value=<%= current_user.id%>>
+  </div>
+
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="mood_box">Mood</label></h5>
+    <input type="text" id="mood_box" name="query_mood" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="weather_box">Weather</label></h5>
+    <input type="text"  id="weather_box" name="query_weather" rows="3" class="form-control"></input>
+  </div>
+
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="date_box"> Date </label></h5>
+    <input type="date" id="date_box" name="query_date" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="title_box">Title</label></h5>
+    <input type="text" id="title_box" name="query_title" class="form-control" placeholder="Add in a title...">
+  </div>
+
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"><label for="content_box">Content</label></h5>
+    <textarea id="content_box" name="query_content" rows="3" class="form-control"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <h5 class="card-header" style="font-family: Marker Felt, fantasy;color: maroon"> <label for="image_box">Image</label></h5>
+    <input type="text" id="image_box" name="query_image" class="form-control" placeholder="Add in an image link...">
+  </div>
+
+
+  <button>
+    Create journal
+  </button>
+</form>
+
+<style>
+  .fancy-button {
+      white-space: normal;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      background-color:#ffd803;
+      color: black;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      border-top: 0.5rem solid maroon;
+      box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.75);
+      }
+
+      .fancy-button:hover {
+        background-color: #faae2b;
+
+      }
+
+  .common-heading {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    line-height: 100px;
+    }
+
+  .common-text {
+    font-family: Marker Felt, fantasy;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    }
+
+  .common-box {
+    border-radius: 30px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffd803;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    width: 300px
+    }
+
+
+  .grey-text{
+    color: grey;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+</style>
